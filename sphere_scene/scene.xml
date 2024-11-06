@@ -1,0 +1,48 @@
+<scene version="3.0.0">
+    <integrator type="direct">
+        <default name="hide_emitters" value="true"/>
+<!--        <integer name="emitter_samples" value="0"/>-->
+        <!--                <integer name="bsdf_samples" value="0"/>-->
+    </integrator>
+
+    <sensor type="perspective">
+        <float name="near_clip" value="0.1"/>
+        <float name="far_clip" value="10.0"/>
+        <transform name="to_world">
+            <lookat origin="0, 0, -2" target="0, 0, 1" up="0, 1, 0"/>
+        </transform>
+        <float name="fov" value="30.0"/>
+
+        <sampler type="independent">
+            <integer name="sample_count" value="256"/>
+        </sampler>
+
+        <film type="hdrfilm">
+            <integer name="width" value="512"/>
+            <integer name="height" value="512"/>
+            <rfilter type="gaussian"/>
+            <boolean name="banner" value="false"/>
+        </film>
+    </sensor>
+
+    <emitter type="envmap">
+        <string name="filename" value="envmap.exr"/>
+        <transform name="to_world">
+            <rotate y="1" angle="140"/>
+        </transform>
+        <float name="scale" value="2"/>
+    </emitter>
+
+    <shape type="sphere">
+        <transform name="to_world">
+            <scale value="0.5"/>
+            <translate x="0" y="0" z="0"/>
+        </transform>
+        <bsdf type="network_bsdf" id="bsdf-matpreview" />
+<!--      <bsdf type="roughconductor">-->
+<!--        <string name="material" value="Al"/>-->
+<!--        <string name="distribution" value="ggx"/>-->
+<!--        <float name="alpha" value="0.1"/>-->
+<!--    </bsdf>-->
+    </shape>
+</scene>
