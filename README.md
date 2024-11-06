@@ -31,9 +31,9 @@ Currently, we mainly focus on the BRDF supported by [mitsuba3](https://www.mitsu
 The results are shown in the following figures. The first row is the network output, and the second row is the ground truth.
 Obviously, there are some differences between the network output and the ground truth, especially in the grazing angles regions.
 
-[img](assets/network_res.png)
+<img src="assets/network_res.png" height="400" width="400">
 
-[img](assets/gt.png)
+<img src="assets/gt.png" height="400" width="400">
 
 
 ### Related work 
