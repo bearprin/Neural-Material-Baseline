@@ -59,7 +59,7 @@ class NetworkBSDF(mi.BSDF):
         # bs.pdf = mi.Float(pdf)
         cos_theta_o = mi.Frame3f.cos_theta(bs.wo)
         value_mi = self._eval_network(si.wi, bs.wo)
-        value_mi = value_mi / bs.pdf
+        value_mi = value_mi / bs.pdf * cos_theta_o
 
         return (bs, dr.select(active & (bs.pdf > 0.0), value_mi, mi.Vector3f(0)))
 
